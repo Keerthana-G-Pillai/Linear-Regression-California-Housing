@@ -94,17 +94,7 @@ The visualization makes it easier to understand how well the linear model repres
 
 ---
 
-## ✨ Key Learnings
 
-✔️ Understanding the fundamentals of Simple Linear Regression
-✔️ Working with a real-world housing dataset
-✔️ Selecting a single feature for prediction
-✔️ Understanding the role of the Cost Function
-✔️ Optimizing model parameters using Gradient Descent
-✔️ Analyzing model convergence
-✔️ Visualizing predictions using a Regression Line
-
----
 
 ## ✅ Result
 

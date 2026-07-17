@@ -1,159 +1,123 @@
-# Linear Regression with One Variable on California Housing Dataset
+<div align="center">
 
-## Experiment 1
+# 🏠 California Housing Price Prediction
 
-### Aim
+### Simple Linear Regression with One Variable
 
-To implement **Linear Regression with one variable** on the **California Housing Dataset** and analyze the model using the **cost convergence curve** and **regression line visualization**.
-
----
-
-## Description
-
-This experiment demonstrates the implementation of **Simple Linear Regression**, where a single input feature is used to predict the target variable.
-
-The **Average Number of Rooms (`AveRooms`)** is used as the independent variable to predict the **Median House Value (`MedHouseVal`)**.
-
-The experiment includes:
-
-* Loading the California Housing Dataset
-* Selecting a single feature for regression
-* Splitting the dataset into training and testing sets
-* Implementing Linear Regression
-* Applying Gradient Descent
-* Tracking the cost function during training
-* Visualizing the cost convergence curve
-* Making predictions on test data
-* Visualizing the regression line
+📊 **Machine Learning Laboratory — Experiment 1**
 
 ---
 
-## Dataset
+*A simple implementation of Linear Regression to explore the relationship between average rooms and median house values using the California Housing Dataset.*
 
-The **California Housing Dataset** contains information about housing districts in California.
+</div>
 
-For this experiment:
+## 🎯 Objective
 
-* **Input Feature (X):** Average number of rooms (`AveRooms`)
-* **Target Variable (y):** Median house value (`MedHouseVal`)
-
-The target values represent median house values in units of **$100,000**.
+To implement **Linear Regression with one variable** on the **California Housing Dataset** and understand how a linear model learns the relationship between an input feature and a target variable.
 
 ---
 
-## Technologies Used
+## 📊 Dataset
 
-* Python
-* NumPy
-* Matplotlib
-* Scikit-learn
-* Jupyter Notebook
+The experiment uses the **California Housing Dataset**, which contains information about housing districts in California.
 
----
+|     | Variable        | Description                           |
+| --- | --------------- | ------------------------------------- |
+| 🏘️ | **AveRooms**    | Average number of rooms per household |
+| 💰  | **MedHouseVal** | Median house value                    |
 
-## Linear Regression
-
-Linear Regression finds the relationship between an independent variable `X` and a dependent variable `y` by fitting a straight line to the data.
-
-For one variable, the hypothesis function is:
-
-`h(x) = θ₀ + θ₁x`
-
-Where:
-
-* `θ₀` = Intercept
-* `θ₁` = Slope or coefficient
-* `x` = Input feature
-* `h(x)` = Predicted value
+> **AveRooms** is used as the input feature to predict **MedHouseVal**.
 
 ---
 
-## Cost Function
+## 🔄 Experiment Workflow
 
-The cost function measures the error between the actual and predicted values.
-
-The Mean Squared Error based cost function is:
-
-`J(θ) = (1 / 2m) Σ(h(x) - y)²`
-
-The objective of Gradient Descent is to minimize this cost.
+**Load Dataset** → **Select Feature** → **Split Data** → **Train Model** → **Optimize Parameters** → **Make Predictions** → **Visualize Results**
 
 ---
 
-## Gradient Descent
+## 🧠 Concepts Explored
 
-Gradient Descent is an optimization algorithm used to find the optimal values of the model parameters.
+### 📈 Simple Linear Regression
 
-During each iteration, the parameters are updated to reduce the cost function.
+Simple Linear Regression models the relationship between a **single independent variable** and a **dependent variable** by fitting the best possible straight line through the data.
 
-As Gradient Descent progresses, the cost should decrease and eventually converge to a minimum value.
+In this experiment, the model learns the relationship between the **average number of rooms** and the **median house value**.
 
----
+### 📉 Cost Function
 
-## Cost Convergence Curve
+The cost function measures how far the model's predictions are from the actual house values.
 
-The cost convergence curve plots the cost against the number of Gradient Descent iterations.
+A **lower cost** indicates that the model's predictions are closer to the actual values.
 
-```python
-plt.figure(figsize=(7,5))
-plt.plot(cost_history, color='teal', linewidth=4)
-plt.title("Gradient Descent Cost Convergence Curve")
-plt.xlabel("Iterations")
-plt.ylabel("Cost J(theta)")
-plt.grid(True, linestyle='--', alpha=0.6)
-plt.show()
-```
+### 🔄 Gradient Descent
 
-A decreasing curve indicates that Gradient Descent is successfully minimizing the cost function. When the curve becomes nearly flat, the algorithm has converged.
+Gradient Descent is used to gradually adjust the model parameters and minimize the cost function.
+
+With each iteration, the model attempts to reduce its prediction error until the cost converges toward a minimum value.
 
 ---
 
-## Regression Line Visualization
+## 📉 Cost Convergence Curve
 
-The regression line is plotted along with the actual test data.
+The **Cost Convergence Curve** visualizes how the cost changes during Gradient Descent.
 
-```python
-# Sort X values for a smooth line
-index = np.argsort(X_test.flatten())
+📌 A decreasing curve shows that the model is learning.
 
-plt.figure(figsize=(8,5))
-plt.scatter(X_test, y_test, color='purple', label="Actual Data")
+📌 A curve that gradually becomes flat indicates that Gradient Descent is converging.
 
-plt.plot(
-    X_test.flatten()[index],
-    y_pred_ne[index],
-    color='teal',
-    linewidth=2,
-    label="Regression Line"
-)
-
-plt.title("Linear Regression")
-plt.xlabel("Average Rooms")
-plt.ylabel("Median House Value")
-plt.legend()
-plt.grid(True)
-plt.show()
-```
-
-In the visualization:
-
-* The **scatter points** represent the actual house values.
-* The **regression line** represents the values predicted by the Linear Regression model.
-* The X-axis represents the **Average Number of Rooms**.
-* The Y-axis represents the **Median House Value**.
+This visualization helps verify whether the optimization process is working correctly.
 
 ---
 
-## Results
+## 📈 Regression Line Visualization
 
-The Linear Regression model was successfully implemented using a single feature from the California Housing Dataset.
+The **Regression Line** shows the relationship learned by the Linear Regression model.
 
-The **cost convergence curve** demonstrates how the cost decreases over multiple iterations of Gradient Descent.
+* 🟣 **Data Points** — Actual house values
+* 🟢 **Regression Line** — Predicted relationship between average rooms and house value
 
-The **regression line visualization** shows the relationship between the average number of rooms and median house values and compares the predicted regression line with the actual data points.
+The visualization makes it easier to understand how well the linear model represents the actual data.
 
 ---
 
-## Conclusion
+## 🛠️ Technologies Used
 
-This experiment demonstrates the working of **Simple Linear Regression** using the California Housing Dataset. Gradient Descent is used to minimize the cost function and optimize the model parameters. The cost convergence curve helps verify the convergence of the algorithm, while the regression line provides a visual representation of the relationship between the selected feature and the target variable.
+| Technology              | Purpose                              |
+| ----------------------- | ------------------------------------ |
+| 🐍 **Python**           | Programming and model implementation |
+| 🔢 **NumPy**            | Numerical computations               |
+| 📊 **Matplotlib**       | Data visualization                   |
+| 🤖 **Scikit-learn**     | California Housing Dataset           |
+| 📓 **Jupyter Notebook** | Interactive development              |
+
+---
+
+## ✨ Key Learnings
+
+✔️ Understanding the fundamentals of Simple Linear Regression
+✔️ Working with a real-world housing dataset
+✔️ Selecting a single feature for prediction
+✔️ Understanding the role of the Cost Function
+✔️ Optimizing model parameters using Gradient Descent
+✔️ Analyzing model convergence
+✔️ Visualizing predictions using a Regression Line
+
+---
+
+## ✅ Result
+
+The **Simple Linear Regression model** was successfully implemented using the California Housing Dataset.
+
+The **Cost Convergence Curve** demonstrates how the prediction error decreases during training, while the **Regression Line Visualization** illustrates the relationship between the average number of rooms and median house values.
+
+---
+
+<div align="center">
+
+### 🏡 From Data to Predictions 📈
+
+**Linear Regression • Gradient Descent • Machine Learning**
+
+</div>
